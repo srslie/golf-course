@@ -15,8 +15,10 @@ describe('Golf Course', function () {
   });
 
   it.skip('should have some unique features', function () {
-    var golfCourse = new GolfCourse('Arrowhead', 'hard', 42, ['great views', 'wildlife'])
-    assert.deepEqual(golfCourse.features, ['great views', 'wildlife'])
+    var golfCourse1 = new GolfCourse('Arrowhead', 'hard', 42, ['great views', 'wildlife'])
+    var golfCourse2 = new GolfCourse('Bay Hill', 'hard', 11, ['water', 'Arnies Place'])
+    assert.deepEqual(golfCourse1.features, ['great views', 'wildlife'])
+    assert.deepEqual(golfCourse2.features, ['water', 'Arnies Place'])
   });
 
   // PASS GOLFER TESTS BELOW BEFORE FINISHING REMAINING GOLF COURSE TESTS
@@ -110,6 +112,6 @@ describe('Golfer', function () {
     simulatePractice(20, golfer1);
     assert.equal(golfer1.handicap, 19);
     simulatePractice(19, golfer2);
-    assert.equal(golfer1.handicap, 19);
+    assert.equal(golfer2.handicap, 19);
   });
 });
