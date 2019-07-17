@@ -109,11 +109,11 @@ describe('Golfer', function () {
 
   it.skip('should be able to improve after a LOT of practice', function () {
     var golfer1 = new Golfer('Eric', 20);
-    var golfer2 = new Golfer('Kyle', 19);
+    var golfer2 = new Golfer('Kyle', 10);
 
     simulatePractice(20, golfer1);
     assert.equal(golfer1.handicap, 19);
     simulatePractice(19, golfer2);
-    assert.equal(golfer2.handicap, 19);
+    assert.equal(golfer2.handicap, 10);
   });
 });
