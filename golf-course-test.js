@@ -10,8 +10,10 @@ describe('Golf Course', function () {
   });
 
   it.skip('should have a total number of openings for the day', function () {
-    var golfCourse = new GolfCourse('Harvard Gulch', 'moderate', 25);
-    assert.equal(golfCourse.openings, 25)
+    var golfCourse1 = new GolfCourse('Harvard Gulch', 'moderate', 25);
+    var golfCourse2 = new GolfCourse('Todd Crick', 'hard', 11);
+    assert.equal(golfCourse1.openings, 25)
+    assert.equal(golfCourse2.openings, 11)
   });
 
   it.skip('should have some unique features', function () {
