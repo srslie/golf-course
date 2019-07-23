@@ -84,7 +84,7 @@ describe('Golfer', function () {
   });
 
   it.skip('should be able to calculate their average score based on par 72', function () {
-    var golfer1 = new Golfer({ name: 'Kyle', hanidcap: 4 });
+    var golfer1 = new Golfer({ name: 'Kyle', handicap: 4 });
     var golfer2 = new Golfer({ name: 'Michelle', handicap: 10 });
     assert.equal(golfer1.calculateAvg(), 'I usually shoot a 76 on average.');
     assert.equal(golfer2.calculateAvg(), 'I usually shoot a 82 on average.');
@@ -119,3 +119,4 @@ describe('Golfer', function () {
     assert.equal(golfer2.handicap, 10);
   });
 });
+
