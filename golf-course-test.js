@@ -127,37 +127,40 @@ describe('Golfer', function () {
     var golfCourse2 = new GolfCourse('Arrowhead', 'hard', 42, ['undulating greens', 'creative layout'])
 
     assert.deepEqual(golfCourse1.features, ['great views', 'wildlife']);
-    assert.deepEqual(golf.features, ['undulating greens', 'creative layout']);
+    assert.deepEqual(golfCourse2.features, ['undulating greens', 'creative layout']);
     assert.equal(golfer4.marvel(golfCourse1), 'I love the great views and wildlife on this course!');
     assert.equal(golfer5.marvel(golfCourse2), 'I love the undulating greens and creative layout on this course!')
   });
 
-  it.skip('should have the quality of shots affect their frustration', function () {
+  it.skip('should have their performance on a hole affect their frustration **NOTE: Scores below 0 are considered excellent, scores of even par (0) are good, scores above 0 are considered bad**"', function () {
     var golfer1 = new Golfer({ name: 'Zach', handicap: 18 });
-    var goodShots = ['straight', 'draw', 'fade']
-    var badShots = ['duff', 'shank', 'topped', 'slice', 'hook', 'chunked', 'hosel rocket']
+   
 
     assert.equal(golfer1.frustration, 0);
 
-    var shot1 = golfer1.shotOutcome('duff');
-    assert.equal(golfer1.frustration, 25);
+    var shot1 = golfer1.whatYaShoot(4);
+    assert.equal(golfer1.frustration, 20);
     assert.equal(shot1, 'Doh!');
 
-    var shot2 = golfer1.shotOutcome('draw');
-    assert.equal(golfer1.frustration, 0);
+    var shot2 = golfer1.whatYaShoot(0);
+    assert.equal(golfer1.frustration, 10);
     assert.equal(shot2, 'Booyah!');
 
-    var shot3 = golfer1.shotOutcome('hosel rocket');
-    assert.equal(golfer1.frustration, 25);
+    var shot3 = golfer1.whatYaShoot(2);
+    assert.equal(golfer1.frustration, 30);
     assert.equal(shot3, 'Doh!');
 
-    var shot4 = golfer1.shotOutcome('slice');
-    assert.equal(golfer1.frustration, 50);
-    assert.equal(shot4, 'Booyah!');
-
-    var shot5 = golfer1.shotOutcome('straight');
+    var shot4 = golfer1.whatYaShoot(-2);
     assert.equal(golfer1.frustration, 0);
-    assert.equal(shot5, 'Booyah!');
+    assert.equal(shot4, 'I AM THE GREATEST GOLFER ALIVE!');
+
+    var shot5 = golfer1.whatYaShoot(3);
+    assert.equal(golfer1.frustration, 20);
+    assert.equal(shot5, 'Doh!');
+
+    var shot6 = golfer1.whatYaShoot(-1);
+    assert.equal(golfer1.frustration, 0);
+    assert.equal(shot6, 'I AM THE GREATEST GOLFER ALIVE!');
   });
 });
 
