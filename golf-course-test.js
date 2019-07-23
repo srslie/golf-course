@@ -60,11 +60,13 @@ describe('Golf Course', function () {
     var golfCourse = new GolfCourse('Fossil Trace', 'hard', 5, ['artifacts on course', 'layout']);
     var golfer1 = new Golfer({ name: 'Ruth', handicap: 10 });
     var golfer2 = new Golfer({ name: 'Irwin', handicap: 11 });
-    var golfer3 = new Golfer({ name: 'Terry', handicap: 15 });
+    var golfer3 = new Golfer ({name: 'Nancy', handicap: 14});
+    var golfer4 = new Golfer({ name: 'Terry', handicap: 15 });
 
     assert.equal(golfCourse.recommendTees(golfer1), 'You should play from the Difficult Tees.');
     assert.equal(golfCourse.recommendTees(golfer2), 'You should play from the Middle Tees.');
-    assert.equal(golfCourse.recommendTees(golfer3), 'You should play from the Forward Tees.');
+    assert.equal(golfCourse.recommendTees(golfer3), 'You should play from the Middle Tees.');
+    assert.equal(golfCourse.recommendTees(golfer4), 'You should play from the Forward Tees.');
   });
 });
 
