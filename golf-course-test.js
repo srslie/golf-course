@@ -60,7 +60,7 @@ describe('Golf Course', function () {
     var golfCourse = new GolfCourse('Fossil Trace', 'hard', 5, ['artifacts on course', 'layout']);
     var golfer1 = new Golfer({ name: 'Ruth', handicap: 10 });
     var golfer2 = new Golfer({ name: 'Irwin', handicap: 11 });
-    var golfer3 = new Golfer ({name: 'Nancy', handicap: 14});
+    var golfer3 = new Golfer({ name: 'Nancy', handicap: 14 });
     var golfer4 = new Golfer({ name: 'Terry', handicap: 15 });
 
     assert.equal(golfCourse.recommendTees(golfer1), 'You should play from the Difficult Tees.');
@@ -109,14 +109,56 @@ describe('Golfer', function () {
     }
   }
 
-  it.skip('should be able to improve after a LOT of practice', function () {
-    var golfer1 = new Golfer({ name: 'Tyler', handicap: 20 });
-    var golfer2 = new Golfer({ name: 'Kyle', handicap: 10 });
-
-    simulatePractice(20, golfer1);
-    assert.equal(golfer1.handicap, 19);
-    simulatePractice(19, golfer2);
-    assert.equal(golfer2.handicap, 10);
+  it.skip('should gain confidence after more practice', function () {
+    var golfer1 = new Golfer({ name: 'Mark', handicap: 10 });
+    assert.equal(golfer1.confidence, 0);
+    simulatePractice(1, golfer1);
+    assert.equal(golfer1.confidence, 10);
+    simulatePractice(5, golfer1);
+    assert.equal(golfer1.confidence, 60);
+    golfer1.hitTheRange();
+    assert.equal(golfer1.confidence, 70);
   });
+
+  it.skip('should be able to make marvel at the features of a golf course', function () {
+    var golfer4 = new Golfer({ name: 'Khalid', handicap: 6 });
+    var golfCourse1 = new GolfCourse('Arrowhead', 'hard', 42, ['great views', 'wildlife'])
+    var golfer5 = new Golfer({ name: 'Amy', handicap: 3 });
+    var golfCourse2 = new GolfCourse('Arrowhead', 'hard', 42, ['undulating greens', 'creative layout'])
+
+    assert.deepEqual(golfCourse1.features, ['great views', 'wildlife']);
+    assert.deepEqual(golf.features, ['undulating greens', 'creative layout']);
+    assert.equal(golfer4.marvel(golfCourse1), 'I love the great views and wildlife on this course!');
+    assert.equal(golfer5.marvel(golfCourse2), 'I love the undulating greens and creative layout on this course!')
+  });
+
+  it.skip('should have the quality of shots affect their frustration', function () {
+    var golfer1 = new Golfer({ name: 'Zach', handicap: 18 });
+    var goodShots = ['straight', 'draw', 'fade']
+    var badShots = ['duff', 'shank', 'topped', 'slice', 'hook', 'chunked', 'hosel rocket']
+
+    assert.equal(golfer1.frustration, 0);
+
+    var shot1 = golfer1.shotOutcome('duff');
+    assert.equal(golfer1.frustration, 25);
+    assert.equal(shot1, 'Doh!');
+
+    var shot2 = golfer1.shotOutcome('draw');
+    assert.equal(golfer1.frustration, 0);
+    assert.equal(shot2, 'Booyah!');
+
+    var shot3 = golfer1.shotOutcome('hosel rocket');
+    assert.equal(golfer1.frustration, 25);
+    assert.equal(shot3, 'Doh!');
+
+    var shot4 = golfer1.shotOutcome('slice');
+    assert.equal(golfer1.frustration, 50);
+    assert.equal(shot4, 'Booyah!');
+
+    var shot5 = golfer1.shotOutcome('straight');
+    assert.equal(golfer1.frustration, 0);
+    assert.equal(shot5, 'Booyah!');
+  });
+
 });
 
