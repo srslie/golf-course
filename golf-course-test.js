@@ -12,15 +12,15 @@ describe('Golf Course', function () {
   it.skip('should have a total number of openings for the day', function () {
     var golfCourse1 = new GolfCourse('Harvard Gulch', 'moderate', 25);
     var golfCourse2 = new GolfCourse('Todd Crick', 'hard', 11);
-    assert.equal(golfCourse1.openings, 25)
-    assert.equal(golfCourse2.openings, 11)
+    assert.equal(golfCourse1.openings, 25);
+    assert.equal(golfCourse2.openings, 11);
   });
 
   it.skip('should have some unique features', function () {
-    var golfCourse1 = new GolfCourse('Arrowhead', 'hard', 42, ['great views', 'wildlife'])
-    var golfCourse2 = new GolfCourse('Bay Hill', 'hard', 11, ['water', 'Arnies Place'])
-    assert.deepEqual(golfCourse1.features, ['great views', 'wildlife'])
-    assert.deepEqual(golfCourse2.features, ['water', 'Arnies Place'])
+    var golfCourse1 = new GolfCourse('Arrowhead', 'hard', 42, ['great views', 'wildlife']);
+    var golfCourse2 = new GolfCourse('Bay Hill', 'hard', 11, ['water', 'Arnies Place']);
+    assert.deepEqual(golfCourse1.features, ['great views', 'wildlife']);
+    assert.deepEqual(golfCourse2.features, ['water', 'Arnies Place']);
   });
 
   // PASS GOLFER TESTS BELOW BEFORE FINISHING REMAINING GOLF COURSE TESTS
@@ -42,7 +42,7 @@ describe('Golf Course', function () {
     var group3 = [golfer6, golfer7, golfer8, golfer9]
 
     assert.equal(golfCourse.openings, 8);
-    assert.deepEqual(golfCourse.currentlyPlaying, [])
+    assert.deepEqual(golfCourse.currentlyPlaying, []);
     golfCourse.checkInGroup(group1);
     assert.equal(golfCourse.openings, 5);
     assert.deepEqual(golfCourse.currentlyPlaying, ['Kevin', 'Ted', 'Pat']);
@@ -100,12 +100,12 @@ describe('Golfer', function () {
     assert.equal(golfer1.frustration, 500);
 
     golfer2.playRound(golfCourse2);
-    assert.equal(golfer2.frustration, 100)
+    assert.equal(golfer2.frustration, 100);
   });
 
   function simulatePractice(num, golfer) {
     for (var i = 0; i < num; i++) {
-      golfer.hitTheRange()
+      golfer.hitTheRange();
     }
   }
 
@@ -159,6 +159,5 @@ describe('Golfer', function () {
     assert.equal(golfer1.frustration, 0);
     assert.equal(shot5, 'Booyah!');
   });
-
 });
 
