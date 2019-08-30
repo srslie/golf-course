@@ -1,4 +1,5 @@
 # Golf Course and Golfer
+![Fore!](https://media.giphy.com/media/xUOwG43OJ9Mzf4exQQ/source.gif)
 
 ## Installation Steps
 
