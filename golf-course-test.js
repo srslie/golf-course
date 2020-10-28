@@ -3,20 +3,20 @@ var GolfCourse = require('./golf-course.js');
 var Golfer = require('./golfer.js')
 
 describe('Golf Course', function () {
-  it.skip('should have a name and difficulty', function () {
+  it('should have a name and difficulty', function () {
     var golfCourse = new GolfCourse('Overland GC', 'moderate');
     assert.equal(golfCourse.name, 'Overland GC');
     assert.equal(golfCourse.difficulty, 'moderate');
   });
 
-  it.skip('should have a total number of openings for the day', function () {
+  it('should have a total number of openings for the day', function () {
     var golfCourse1 = new GolfCourse('Harvard Gulch', 'moderate', 25);
     var golfCourse2 = new GolfCourse('Todd Crick', 'hard', 11);
     assert.equal(golfCourse1.openings, 25);
     assert.equal(golfCourse2.openings, 11);
   });
 
-  it.skip('should have some unique features', function () {
+  it('should have some unique features', function () {
     var golfCourse1 = new GolfCourse('Arrowhead', 'hard', 42, ['great views', 'wildlife']);
     var golfCourse2 = new GolfCourse('Bay Hill', 'hard', 11, ['water', 'Arnies Place']);
     assert.deepEqual(golfCourse1.features, ['great views', 'wildlife']);
@@ -25,7 +25,7 @@ describe('Golf Course', function () {
 
   // PASS GOLFER TESTS BELOW BEFORE FINISHING REMAINING GOLF COURSE TESTS
 
-  it.skip('should accept golfers if there is room available', function () {
+  it('should accept golfers if there is room available', function () {
     var golfCourse = new GolfCourse('Bear Dance', 'hard', 8, ['bear shaped green, views']);
     var golfer1 = new Golfer({ name: 'Pat', handicap: 11 });
     var golfer2 = new Golfer({ name: 'Ted', handicap: 13 });
@@ -56,7 +56,7 @@ describe('Golf Course', function () {
     assert.deepEqual(golfCourse.currentlyPlaying, ['Bridget', 'Joanna', 'Kevin', 'Ted', 'Pat']);
   });
 
-  it.skip('should recommend which tees to play from based on handicap', function () {
+  it('should recommend which tees to play from based on handicap', function () {
     var golfCourse = new GolfCourse('Fossil Trace', 'hard', 5, ['artifacts on course', 'layout']);
     var golfer1 = new Golfer({ name: 'Ruth', handicap: 10 });
     var golfer2 = new Golfer({ name: 'Irwin', handicap: 11 });
@@ -71,26 +71,26 @@ describe('Golf Course', function () {
 });
 
 describe('Golfer', function () {
-  it.skip('should have a name and handicap', function () {
+  it('should have a name and handicap', function () {
     var golfer = new Golfer({ name: 'Will', handicap: 21 });
     assert.equal(golfer.name, 'Will');
     assert.equal(golfer.handicap, 21);
   });
 
-  it.skip('should start out minimally frustrated', function () {
+  it('should start out minimally frustrated', function () {
     var golfer = new Golfer({ name: 'Ryan', handicap: 19 });
     assert.equal(golfer.name, 'Ryan');
     assert.equal(golfer.frustration, 0);
   });
 
-  it.skip('should be able to calculate their average score based on par 72', function () {
+  it('should be able to calculate their average score based on par 72', function () {
     var golfer1 = new Golfer({ name: 'Kyle', handicap: 4 });
     var golfer2 = new Golfer({ name: 'Michelle', handicap: 10 });
     assert.equal(golfer1.calculateAvg(), 'I usually shoot a 76 on average.');
     assert.equal(golfer2.calculateAvg(), 'I usually shoot a 82 on average.');
   });
 
-  it.skip('should become frustrated based on the course difficulty (HARD or MODERATE - golf is never easy)', function () {
+  it('should become frustrated based on the course difficulty (HARD or MODERATE - golf is never easy)', function () {
     var golfer1 = new Golfer({ name: 'Thomas', handicap: 15 });
     var golfer2 = new Golfer({ name: 'Margit', handicap: 4 });
     var golfCourse1 = new GolfCourse('Bear Dance', 'hard', 44, ['elevation', 'views']);
@@ -109,7 +109,7 @@ describe('Golfer', function () {
     }
   }
 
-  it.skip('should gain confidence after more practice', function () {
+  it('should gain confidence after more practice', function () {
     var golfer1 = new Golfer({ name: 'Mark', handicap: 10 });
     assert.equal(golfer1.confidence, 0);
     simulatePractice(1, golfer1);
@@ -120,7 +120,7 @@ describe('Golfer', function () {
     assert.equal(golfer1.confidence, 70);
   });
 
-  it.skip('should be able to make marvel at the features of a golf course', function () {
+  it('should be able to make marvel at the features of a golf course', function () {
     var golfer4 = new Golfer({ name: 'Khalid', handicap: 6 });
     var golfCourse1 = new GolfCourse('Arrowhead', 'hard', 42, ['great views', 'wildlife'])
     var golfer5 = new Golfer({ name: 'Amy', handicap: 3 });
@@ -132,9 +132,9 @@ describe('Golfer', function () {
     assert.equal(golfer5.marvel(golfCourse2), 'I love the undulating greens and creative layout on this course!')
   });
 
-  it.skip('should have their performance on a hole affect their frustration **NOTE: Scores below 0 are considered excellent, scores of even par (0) are good, scores above 0 are considered bad**"', function () {
+  it('should have their performance on a hole affect their frustration **NOTE: Scores below 0 are considered excellent, scores of even par (0) are good, scores above 0 are considered bad**"', function () {
     var golfer1 = new Golfer({ name: 'Zach', handicap: 18 });
-   
+
 
     assert.equal(golfer1.frustration, 0);
 
@@ -163,4 +163,3 @@ describe('Golfer', function () {
     assert.equal(shot6, 'I AM THE GREATEST GOLFER ALIVE!');
   });
 });
-
